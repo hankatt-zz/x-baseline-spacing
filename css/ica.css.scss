@@ -1,0 +1,145 @@
+$font-size-base: 16px;
+$font-size-scale: 1.333333; //Inherent within the ICA Text and ICA Rubrik font families.
+
+$font-size-1: $font-size-base;
+$font-size-2: $font-size-1 * $font-size-scale; // ~21
+$font-size-3: $font-size-2 * $font-size-scale; // ~28
+$font-size-4: $font-size-3 * $font-size-scale; // ~38
+$font-size-5: $font-size-4 * $font-size-scale; // ~50
+$font-size-6: $font-size-5 * $font-size-scale; // ~68
+
+$fs-text-small: $font-size-1;
+$fs-text: $font-size-2; //~21
+$fs-text-big: $font-size-3; // ~28
+$fs-title-small: $font-size-4; // ~38
+$fs-title: $font-size-5; // ~50
+$fs-title-big: $font-size-6; // ~68
+
+body {
+  background-color: #f6f3f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: greyscale;
+}
+
+@function whitespace-previous($font-size) {
+  //$x-to-bottom: .15 * $font-size;
+  @return .15 * $font-size;
+}
+
+@function whitespace-top($font-size) {
+  //$top-to-cap: .15 * $font-size;
+  //$cap-to-x: .17 * $font-size;
+  @return .32 * $font-size;
+}
+
+@function font-whitespace($font-size, $previous-font-size: 0) {
+  @return whitespace-top($font-size) + whitespace-previous($previous-font-size);
+}
+
+@mixin ica-padding-top($padding-top, $font-size, $previous-font-size: 0) {
+  padding-top: $padding-top - font-whitespace($font-size, $previous-font-size);
+}
+
+.modal--price__container {
+  width: 670px;
+  margin: 100px auto;
+  background-color: white;
+  text-align: center;
+  padding: 0 60px 90px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}
+
+/*
+  .offer--name: 38px
+  .offer--description: 21px
+  .offer--price: 68px
+  .offer--metadata: 21px
+  .offer--info: 21px
+*/
+
+.offer--name,
+.offer--description,
+.offer--price,
+.offer--metadata,
+.offer--info {
+  line-height: 1;
+}
+
+.offer--name,
+.offer--price {
+  font-family: "ICA Rubrik"
+}
+
+.offer--description,
+.offer--info,
+.offer--metadata {
+  font-family: "ICA Text Web";
+  font-size: $fs-text-small;
+}
+
+.offer--name,
+.offer--description,
+.offer--metadata,
+.offer--info {
+  font-weight: 100;
+}
+
+.offer--name {
+  font-size: $fs-title-small;
+}
+
+.offer--price {
+  font-size: $fs-title-big;
+  font-weight: bold;
+}
+
+.offer--name {
+  @include ica-padding-top(100px, $fs-title-small);
+}
+
+.offer--name + .offer--description {
+  @include ica-padding-top(30px, $fs-text-small, $previous-font-size: $fs-title-small);
+}
+
+.offer--description + .offer--price {
+  @include ica-padding-top(40px, $fs-title-big, $previous-font-size: $fs-title-small);
+}
+
+.offer--price + .offer--metadata {
+  @include ica-padding-top(30px, $fs-text-small, $previous-font-size: $fs-title-big);
+}
+
+/*  
+    __________________________________________________________________
+
+    COLORS
+    __________________________________________________________________
+*/
+.offer--name {
+  color: #3f3f40;
+}
+
+.offer--price {
+  color: #eb1f07;
+}
+
+.offer--description,
+.offer--metadata {
+  color: #8d8d8d;
+}
+
+.offer--metadata,
+.offer--info {
+  padding-bottom: 13.333px;
+}
+
+.offer--info {
+  color: #a02971;
+  display: block;
+}

@@ -1,0 +1,175 @@
+body {
+  background-color: #f6f3f0;
+  padding: 60px; }
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: greyscale; }
+
+.modal--price__container {
+  width: 100%;
+  max-width: 670px;
+  margin: 40px auto;
+  background-color: white;
+  text-align: center;
+  padding: 0 60px 90px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box; }
+
+.modal--example {
+  display: none; }
+
+.modal--example.visible {
+  display: block; }
+
+.modal--example__description {
+  width: 80%;
+  max-width: 470px;
+  text-align: center;
+  margin: 40px auto 0;
+  font-family: "Roboto";
+  font-weight: 300;
+  line-height: 1.333;
+  height: 60px; }
+  .modal--example__description em {
+    font-weight: 400;
+    font-style: normal; }
+
+/*
+  .offer--name: 38px
+  .offer--description: 21px
+  .offer--price: 68px
+  .offer--metadata: 21px
+  .offer--info: 21px
+*/
+.offer--name,
+.offer--description,
+.offer--price,
+.offer--metadata,
+.offer--info {
+  line-height: 1; }
+
+.offer--name,
+.offer--price {
+  font-family: "Roboto"; }
+
+.offer--description,
+.offer--info,
+.offer--metadata {
+  font-family: "Roboto";
+  font-size: 16px; }
+
+.offer--name,
+.offer--description,
+.offer--metadata,
+.offer--info {
+  font-weight: 100; }
+
+.offer--name {
+  font-size: 37.9259px;
+  letter-spacing: -1px; }
+
+.offer--price {
+  font-size: 67.42378px;
+  font-weight: 800;
+  letter-spacing: -3px; }
+
+.offer--name {
+  padding-top: 100px; }
+
+.offer--name + .offer--description {
+  padding-top: 30px; }
+
+.offer--description + .offer--price {
+  padding-top: 40px; }
+
+.offer--price + .offer--metadata {
+  padding-top: 30px; }
+
+.adjusted .offer--name {
+  padding-top: 88.24297px; }
+.adjusted .offer--name + .offer--description {
+  padding-top: 18.78223px; }
+.adjusted .offer--description + .offer--price {
+  padding-top: 12.84085px; }
+.adjusted .offer--price + .offer--metadata {
+  padding-top: 13.91508px; }
+
+/*  
+    __________________________________________________________________
+
+    COLORS
+    __________________________________________________________________
+*/
+.offer--name {
+  color: #3f3f40; }
+
+.offer--price {
+  color: #eb1f07; }
+
+.offer--description,
+.offer--metadata {
+  color: #8d8d8d; }
+
+.offer--metadata,
+.offer--info {
+  padding-bottom: 13.333px; }
+
+.offer--info {
+  color: #a02971;
+  display: block; }
+
+/*  
+    __________________________________________________________________
+
+    SEGMENTED TAB BAR
+    __________________________________________________________________
+*/
+.segmented-tab-bar {
+  width: 283px;
+  height: 40px;
+  display: flex;
+  margin: 0 auto; }
+
+.segmented-tab {
+  width: 140px;
+  height: 100%;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
+  border-left: solid 1px #ddd; }
+  .segmented-tab:hover {
+    cursor: pointer;
+    background-color: #ddd; }
+
+.segmented-tab + .segmented-tab {
+  border-right: solid 1px #ddd; }
+
+.segmented-tab.active {
+  background-color: #eb1f07;
+  color: white;
+  border-top-color: #eb1f07;
+  border-left-color: #eb1f07;
+  border-bottom-color: #eb1f07;
+  border-right-color: #ddd; }
+  .segmented-tab.active:hover {
+    background-color: #C71500; }
+
+.segmented-tab + .segmented-tab.active {
+  border-top-color: #eb1f07;
+  border-right-color: #eb1f07;
+  border-bottom-color: #eb1f07;
+  border-left-color: #ddd; }
+
+.segmented-tab__title {
+  line-height: 42px;
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-family: "Roboto"; }
+
+/*# sourceMappingURL=style.css.map */

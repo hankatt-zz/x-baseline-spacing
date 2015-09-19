@@ -1,0 +1,250 @@
+$font-size-base: 16px;
+$font-size-scale: 1.333333; //Inherent within the ICA Text and ICA Rubrik font families.
+
+$font-size-1: $font-size-base;
+$font-size-2: $font-size-1 * $font-size-scale; // ~21
+$font-size-3: $font-size-2 * $font-size-scale; // ~28
+$font-size-4: $font-size-3 * $font-size-scale; // ~38
+$font-size-5: $font-size-4 * $font-size-scale; // ~50
+$font-size-6: $font-size-5 * $font-size-scale; // ~68
+
+$fs-text-small: $font-size-1;
+$fs-text: $font-size-2; //~21
+$fs-text-big: $font-size-3; // ~28
+$fs-title-small: $font-size-4; // ~38
+$fs-title: $font-size-5; // ~50
+$fs-title-big: $font-size-6; // ~68
+
+body {
+  background-color: #f6f3f0;
+  padding: 60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: greyscale;
+}
+
+@function whitespace-previous($font-size) {
+  //$baseline-to-bottom: .165 * $font-size; (Roboto)
+  @return .165 * $font-size;
+}
+
+@function whitespace-top($font-size) {
+  //$top-to-cap: .13 * $font-size; (Roboto)
+  //$cap-to-x: .18 * $font-size; (Roboto)
+  @return .31 * $font-size;
+}
+
+@function font-whitespace($font-size, $previous-font-size: 0) {
+  @return whitespace-top($font-size) + whitespace-previous($previous-font-size);
+}
+
+@mixin adjusted-padding-top($padding-top, $font-size, $previous-font-size: 0) {
+  padding-top: $padding-top - font-whitespace($font-size, $previous-font-size);
+}
+
+.modal--price__container {
+  width: 100%;
+  max-width: 670px;
+  margin: 40px auto;
+  background-color: white;
+  text-align: center;
+  padding: 0 60px 90px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+}
+
+.modal--example {
+  display: none;
+}
+
+.modal--example.visible {
+  display: block;
+}
+
+.modal--example__description {
+  width: 80%;
+  max-width: 470px;
+  text-align: center;
+  margin: 40px auto 0;
+  font-family: "Roboto";
+  font-weight: 300;
+  line-height: 1.333;
+  height: 60px;
+  & em {
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
+/*
+  .offer--name: 38px
+  .offer--description: 21px
+  .offer--price: 68px
+  .offer--metadata: 21px
+  .offer--info: 21px
+*/
+
+.offer--name,
+.offer--description,
+.offer--price,
+.offer--metadata,
+.offer--info {
+  line-height: 1;
+}
+
+.offer--name,
+.offer--price {
+  font-family: "Roboto";
+}
+
+.offer--description,
+.offer--info,
+.offer--metadata {
+  font-family: "Roboto";
+  font-size: $fs-text-small;
+}
+
+.offer--name,
+.offer--description,
+.offer--metadata,
+.offer--info {
+  font-weight: 100;
+}
+
+.offer--name {
+  font-size: $fs-title-small;
+  letter-spacing: -1px;
+}
+
+.offer--price {
+  font-size: $fs-title-big;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.offer--name {
+  padding-top: 100px;
+}
+
+.offer--name + .offer--description {
+  padding-top: 30px;
+}
+
+.offer--description + .offer--price {
+  padding-top: 40px;
+}
+
+.offer--price + .offer--metadata {
+  padding-top: 30px;
+}
+
+.adjusted {
+  .offer--name {
+    @include adjusted-padding-top(100px, $fs-title-small);
+  }
+
+  .offer--name + .offer--description {
+    @include adjusted-padding-top(30px, $fs-text-small, $previous-font-size: $fs-title-small);
+  }
+
+  .offer--description + .offer--price {
+    @include adjusted-padding-top(40px, $fs-title-big, $previous-font-size: $fs-title-small);
+  }
+
+  .offer--price + .offer--metadata {
+    @include adjusted-padding-top(30px, $fs-text-small, $previous-font-size: $fs-title-big);
+  }
+}
+
+/*  
+    __________________________________________________________________
+
+    COLORS
+    __________________________________________________________________
+*/
+.offer--name {
+  color: #3f3f40;
+}
+
+.offer--price {
+  color: #eb1f07;
+}
+
+.offer--description,
+.offer--metadata {
+  color: #8d8d8d;
+}
+
+.offer--metadata,
+.offer--info {
+  padding-bottom: 13.333px;
+}
+
+.offer--info {
+  color: #a02971;
+  display: block;
+}
+
+/*  
+    __________________________________________________________________
+
+    SEGMENTED TAB BAR
+    __________________________________________________________________
+*/
+
+.segmented-tab-bar {
+  width: 283px;
+  height: 40px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.segmented-tab {
+  width: 140px;
+  height: 100%;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
+  border-left: solid 1px #ddd;
+  &:hover {
+    cursor: pointer;
+    background-color: #ddd;
+  }
+}
+
+.segmented-tab + .segmented-tab {
+  border-right: solid 1px #ddd;
+}
+
+.segmented-tab.active {
+  background-color: #eb1f07;
+  color: white;
+  border-top-color: #eb1f07;
+  border-left-color: #eb1f07;
+  border-bottom-color: #eb1f07;
+  border-right-color: #ddd;
+  &:hover {
+    background-color: #C71500;
+  }
+}
+
+.segmented-tab + .segmented-tab.active {
+  border-top-color: #eb1f07;
+  border-right-color: #eb1f07;
+  border-bottom-color: #eb1f07;
+  border-left-color: #ddd;
+}
+
+.segmented-tab__title {
+  line-height: 42px;
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-family: "Roboto";
+}
