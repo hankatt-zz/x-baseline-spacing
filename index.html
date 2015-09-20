@@ -18,6 +18,12 @@
   <div class="modal--example visible">
     <p class="modal--example__description">Displaying spacing inbetween text elements <em>based on their baseline and x-height</em>, rather than their bounding block element.</p>
     <div class="modal--price__container adjusted">
+      <div class="modal--price__spacings">
+        <div class="row row-100">100</div>
+        <div class="row row-30">30</div>
+        <div class="row row-40">40</div>
+        <div class="row row-30 copy1">30</div>
+      </div>
       <h3 class="offer--name">Premium package</h3>
       <p class="offer--description">Unlimited storage & bandwidth.</p>
       <h1 class="offer--price">15$/m</h1>
@@ -28,10 +34,14 @@
   </div>
   <div class="modal--example">
     <p class="modal--example__description">Displaying spacing inbetween text elements <em>based on their bounding block elements</em>. I know this is how CSS works, but it lacks the precision I as a designer desire.</p>
-    <div class="modal--price__container">
+    <div class="modal--price__container has-spacings">
+      <div class="row row-100">100</div>
       <h3 class="offer--name">Premium package</h3>
+      <div class="row row-30">30</div>
       <p class="offer--description">Unlimited storage & bandwidth.</p>
+      <div class="row row-40">40</div>
       <h1 class="offer--price">15$/m</h1>
+      <div class="row row-30 copy1">30</div>
       <p class="offer--metadata">First month for free.</p>
       <p class="offer--metadata">12 month subscription.</p>
       <a class="offer--info">Learn more</a>

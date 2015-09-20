@@ -15,4 +15,11 @@ $(document).ready(function() {
       sibling_modal.addClass('visible');
     }
   });
+
+  $(".modal--price__container").on('click', function() {
+    active_tab = $(".segmented-tab.active");
+    active_tab_index = active_tab.index();  
+    modal = $(".modal--price__container:eq(" +active_tab_index +")");
+    modal.find('.row').toggleClass('is-hidden');
+  });
 });
